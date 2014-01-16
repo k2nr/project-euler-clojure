@@ -10,6 +10,6 @@
 
 (defn prime-factors [n]
   (let [ps (filter #(= (mod n %) 0) (take-while #(<= % n) primes))]
-    (if (= n 1)
+    (if (<= n 1)
       '()
       (lazy-cat ps (prime-factors (/ n (apply * ps)))))))
